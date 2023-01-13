@@ -86,6 +86,18 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./node_modules/css-loader/dist/runtime/api.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/css-loader/dist/runtime/api.js ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n/*\n  MIT License http://www.opensource.org/licenses/mit-license.php\n  Author Tobias Koppers @sokra\n*/\n// css base code, injected by the css-loader\n// eslint-disable-next-line func-names\nmodule.exports = function (useSourceMap) {\n    var list = []; // return the list of modules as css string\n    list.toString = function toString() {\n        return this.map(function (item) {\n            var content = cssWithMappingToString(item, useSourceMap);\n            if (item[2]) {\n                return \"@media \".concat(item[2], \" {\").concat(content, \"}\");\n            }\n            return content;\n        }).join('');\n    }; // import a list of modules into the list\n    // eslint-disable-next-line func-names\n    list.i = function (modules, mediaQuery, dedupe) {\n        if (typeof modules === 'string') {\n            // eslint-disable-next-line no-param-reassign\n            modules = [[null, modules, '']];\n        }\n        var alreadyImportedModules = {};\n        if (dedupe) {\n            for (var i = 0; i < this.length; i++) {\n                // eslint-disable-next-line prefer-destructuring\n                var id = this[i][0];\n                if (id != null) {\n                    alreadyImportedModules[id] = true;\n                }\n            }\n        }\n        for (var _i = 0; _i < modules.length; _i++) {\n            var item = [].concat(modules[_i]);\n            if (dedupe && alreadyImportedModules[item[0]]) {\n                // eslint-disable-next-line no-continue\n                continue;\n            }\n            if (mediaQuery) {\n                if (!item[2]) {\n                    item[2] = mediaQuery;\n                }\n                else {\n                    item[2] = \"\".concat(mediaQuery, \" and \").concat(item[2]);\n                }\n            }\n            list.push(item);\n        }\n    };\n    return list;\n};\nfunction cssWithMappingToString(item, useSourceMap) {\n    var content = item[1] || ''; // eslint-disable-next-line prefer-destructuring\n    var cssMapping = item[3];\n    if (!cssMapping) {\n        return content;\n    }\n    if (useSourceMap && typeof btoa === 'function') {\n        var sourceMapping = toComment(cssMapping);\n        var sourceURLs = cssMapping.sources.map(function (source) {\n            return \"/*# sourceURL=\".concat(cssMapping.sourceRoot || '').concat(source, \" */\");\n        });\n        return [content].concat(sourceURLs).concat([sourceMapping]).join('\\n');\n    }\n    return [content].join('\\n');\n} // Adapted from convert-source-map (MIT)\nfunction toComment(sourceMap) {\n    // eslint-disable-next-line no-undef\n    var base64 = btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap))));\n    var data = \"sourceMappingURL=data:application/json;charset=utf-8;base64,\".concat(base64);\n    return \"/*# \".concat(data, \" */\");\n}\n\n\n//# sourceURL=webpack:///./node_modules/css-loader/dist/runtime/api.js?");
+
+/***/ }),
+
 /***/ "./src/App.tsx":
 /*!*********************!*\
   !*** ./src/App.tsx ***!
@@ -94,7 +106,18 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.App = void 0;\nvar react_1 = __importDefault(__webpack_require__(/*! react */ \"react\"));\nvar root_1 = __webpack_require__(/*! react-hot-loader/root */ \"react-hot-loader/root\");\nvar Layout_1 = __webpack_require__(/*! ./shared/Layout */ \"./src/shared/Layout/index.ts\");\nvar Content_1 = __webpack_require__(/*! ./shared/Layout/Content */ \"./src/shared/Layout/Content/index.ts\");\nvar Header_1 = __webpack_require__(/*! ./shared/Layout/Header */ \"./src/shared/Layout/Header/index.ts\");\nfunction AppComponent() {\n    return (react_1.default.createElement(Layout_1.Layout, null,\n        react_1.default.createElement(Header_1.Header, null),\n        react_1.default.createElement(Content_1.Content, null)));\n}\nexports.App = (0, root_1.hot)(AppComponent);\n\n\n//# sourceURL=webpack:///./src/App.tsx?");
+eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.App = void 0;\nvar react_1 = __importDefault(__webpack_require__(/*! react */ \"react\"));\n__webpack_require__(/*! ./main.global.less */ \"./src/main.global.less\");\nvar root_1 = __webpack_require__(/*! react-hot-loader/root */ \"react-hot-loader/root\");\nvar Layout_1 = __webpack_require__(/*! ./shared/Layout */ \"./src/shared/Layout/index.ts\");\nvar Content_1 = __webpack_require__(/*! ./shared/Content */ \"./src/shared/Content/index.ts\");\nvar Header_1 = __webpack_require__(/*! ./shared/Header */ \"./src/shared/Header/index.ts\");\nvar CardList_1 = __webpack_require__(/*! ./shared/CardList */ \"./src/shared/CardList/index.ts\");\nfunction AppComponent() {\n    return (react_1.default.createElement(Layout_1.Layout, null,\n        react_1.default.createElement(Header_1.Header, null),\n        react_1.default.createElement(Content_1.Content, null,\n            react_1.default.createElement(CardList_1.CardList, null))));\n}\nexports.App = (0, root_1.hot)(AppComponent);\n\n\n//# sourceURL=webpack:///./src/App.tsx?");
+
+/***/ }),
+
+/***/ "./src/main.global.less":
+/*!******************************!*\
+  !*** ./src/main.global.less ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("// Imports\nvar ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\");\nexports = ___CSS_LOADER_API_IMPORT___(false);\n// Module\nexports.push([module.i, \"/* cyrillic-ext */\\n@font-face {\\n  font-family: 'Roboto';\\n  font-style: normal;\\n  font-weight: 400;\\n  font-display: swap;\\n  src: url(https://fonts.gstatic.com/s/roboto/v30/KFOmCnqEu92Fr1Mu72xKKTU1Kvnz.woff2) format('woff2');\\n  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;\\n}\\n/* cyrillic */\\n@font-face {\\n  font-family: 'Roboto';\\n  font-style: normal;\\n  font-weight: 400;\\n  font-display: swap;\\n  src: url(https://fonts.gstatic.com/s/roboto/v30/KFOmCnqEu92Fr1Mu5mxKKTU1Kvnz.woff2) format('woff2');\\n  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;\\n}\\n/* greek-ext */\\n@font-face {\\n  font-family: 'Roboto';\\n  font-style: normal;\\n  font-weight: 400;\\n  font-display: swap;\\n  src: url(https://fonts.gstatic.com/s/roboto/v30/KFOmCnqEu92Fr1Mu7mxKKTU1Kvnz.woff2) format('woff2');\\n  unicode-range: U+1F00-1FFF;\\n}\\n/* greek */\\n@font-face {\\n  font-family: 'Roboto';\\n  font-style: normal;\\n  font-weight: 400;\\n  font-display: swap;\\n  src: url(https://fonts.gstatic.com/s/roboto/v30/KFOmCnqEu92Fr1Mu4WxKKTU1Kvnz.woff2) format('woff2');\\n  unicode-range: U+0370-03FF;\\n}\\n/* vietnamese */\\n@font-face {\\n  font-family: 'Roboto';\\n  font-style: normal;\\n  font-weight: 400;\\n  font-display: swap;\\n  src: url(https://fonts.gstatic.com/s/roboto/v30/KFOmCnqEu92Fr1Mu7WxKKTU1Kvnz.woff2) format('woff2');\\n  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;\\n}\\n/* latin-ext */\\n@font-face {\\n  font-family: 'Roboto';\\n  font-style: normal;\\n  font-weight: 400;\\n  font-display: swap;\\n  src: url(https://fonts.gstatic.com/s/roboto/v30/KFOmCnqEu92Fr1Mu7GxKKTU1Kvnz.woff2) format('woff2');\\n  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;\\n}\\n/* latin */\\n@font-face {\\n  font-family: 'Roboto';\\n  font-style: normal;\\n  font-weight: 400;\\n  font-display: swap;\\n  src: url(https://fonts.gstatic.com/s/roboto/v30/KFOmCnqEu92Fr1Mu4mxKKTU1Kg.woff2) format('woff2');\\n  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;\\n}\\n:root {\\n  --black: #333333;\\n  --orange: #CC6633;\\n  --green: #A4CC33;\\n  --whiteLightness: 100%;\\n  --white: hsl(0, 0%, var(--whiteLightness));\\n  --grayF4: hsl(0, 0%, calc(var(--whiteLightness) - 4%));\\n  --greyF3: hsl(0, 0%, calc(var(--whiteLightness) - 5%));\\n  --greyEC: hsl(0, 0%, calc(var(--whiteLightness) - 7%));\\n  --greyD9: hsl(0, 0%, calc(var(--whiteLightness) - 15%));\\n  --greyC4: hsl(0, 0%, calc(var(--whiteLightness) - 23%));\\n  --grey99: hsl(0, 0%, calc(var(--whiteLightness) - 40%));\\n  --grey66: hsl(0, 0%, calc(var(--whiteLightness) - 60%));\\n}\\nbody {\\n  padding: 0;\\n  margin: 0;\\n  background-color: var(--grayF4);\\n  font-size: 14px;\\n  line-height: 16px;\\n  font-family: 'Roboto', serif;\\n}\\n* {\\n  color: var(--black);\\n  box-sizing: border-box;\\n  -webkit-font-smoothing: antialiased;\\n  -moz-osx-font-smoothing: grayscale;\\n}\\nul {\\n  margin: 0;\\n  padding: 0;\\n  list-style: none;\\n}\\na {\\n  text-decoration: none;\\n}\\nbutton {\\n  padding: 0;\\n  border: 0;\\n  background: transparent;\\n  cursor: pointer;\\n}\\n\", \"\"]);\n// Exports\nmodule.exports = exports;\n\n\n//# sourceURL=webpack:///./src/main.global.less?");
 
 /***/ }),
 
@@ -122,167 +145,493 @@ eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {
 
 /***/ }),
 
-/***/ "./src/shared/Layout/Content/Content.tsx":
-/*!***********************************************!*\
-  !*** ./src/shared/Layout/Content/Content.tsx ***!
-  \***********************************************/
+/***/ "./src/shared/CardList/CardItem/CardItem.tsx":
+/*!***************************************************!*\
+  !*** ./src/shared/CardList/CardItem/CardItem.tsx ***!
+  \***************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.Content = void 0;\nvar react_1 = __importDefault(__webpack_require__(/*! react */ \"react\"));\nfunction Content() {\n    return (react_1.default.createElement(\"div\", null, \"content\"));\n}\nexports.Content = Content;\n\n\n//# sourceURL=webpack:///./src/shared/Layout/Content/Content.tsx?");
+eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.CardItem = void 0;\nvar react_1 = __importDefault(__webpack_require__(/*! react */ \"react\"));\nvar carditem_less_1 = __importDefault(__webpack_require__(/*! ./carditem.less */ \"./src/shared/CardList/CardItem/carditem.less\"));\nvar Controls_1 = __webpack_require__(/*! ./Controls */ \"./src/shared/CardList/CardItem/Controls/index.ts\");\nvar Menu_1 = __webpack_require__(/*! ./Menu */ \"./src/shared/CardList/CardItem/Menu/index.ts\");\nvar Preview_1 = __webpack_require__(/*! ./Preview */ \"./src/shared/CardList/CardItem/Preview/index.ts\");\nvar TextContent_1 = __webpack_require__(/*! ./TextContent */ \"./src/shared/CardList/CardItem/TextContent/index.ts\");\nfunction CardItem() {\n    return (react_1.default.createElement(\"li\", { className: carditem_less_1.default.card },\n        react_1.default.createElement(TextContent_1.TextContent, null),\n        react_1.default.createElement(Preview_1.Preview, null),\n        react_1.default.createElement(Menu_1.Menu, null),\n        react_1.default.createElement(Controls_1.Controls, null)));\n}\nexports.CardItem = CardItem;\n\n\n//# sourceURL=webpack:///./src/shared/CardList/CardItem/CardItem.tsx?");
 
 /***/ }),
 
-/***/ "./src/shared/Layout/Content/index.ts":
-/*!********************************************!*\
-  !*** ./src/shared/Layout/Content/index.ts ***!
-  \********************************************/
+/***/ "./src/shared/CardList/CardItem/Controls/Controls.tsx":
+/*!************************************************************!*\
+  !*** ./src/shared/CardList/CardItem/Controls/Controls.tsx ***!
+  \************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\nvar __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {\n    if (k2 === undefined) k2 = k;\n    var desc = Object.getOwnPropertyDescriptor(m, k);\n    if (!desc || (\"get\" in desc ? !m.__esModule : desc.writable || desc.configurable)) {\n      desc = { enumerable: true, get: function() { return m[k]; } };\n    }\n    Object.defineProperty(o, k2, desc);\n}) : (function(o, m, k, k2) {\n    if (k2 === undefined) k2 = k;\n    o[k2] = m[k];\n}));\nvar __exportStar = (this && this.__exportStar) || function(m, exports) {\n    for (var p in m) if (p !== \"default\" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);\n};\nObject.defineProperty(exports, \"__esModule\", { value: true });\n__exportStar(__webpack_require__(/*! ./Content */ \"./src/shared/Layout/Content/Content.tsx\"), exports);\n\n\n//# sourceURL=webpack:///./src/shared/Layout/Content/index.ts?");
+eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.Controls = void 0;\nvar react_1 = __importDefault(__webpack_require__(/*! react */ \"react\"));\nvar controls_less_1 = __importDefault(__webpack_require__(/*! ./controls.less */ \"./src/shared/CardList/CardItem/Controls/controls.less\"));\nvar KarmaCounter_1 = __webpack_require__(/*! ./KarmaCounter */ \"./src/shared/CardList/CardItem/Controls/KarmaCounter/index.ts\");\nfunction Controls() {\n    return (react_1.default.createElement(\"div\", { className: controls_less_1.default.controls },\n        react_1.default.createElement(KarmaCounter_1.KarmaCounter, null),\n        react_1.default.createElement(\"button\", { className: controls_less_1.default.commentsButton },\n            react_1.default.createElement(\"svg\", { width: \"15\", height: \"15\", viewBox: \"0 0 15 15\", fill: \"none\", xmlns: \"http://www.w3.org/2000/svg\" },\n                react_1.default.createElement(\"path\", { d: \"M12.75 0H1.41667C0.6375 0 0 0.6375 0 1.41667V9.91667C0 10.6958 0.6375 11.3333 1.41667 11.3333H11.3333L14.1667 14.1667V1.41667C14.1667 0.6375 13.5292 0 12.75 0ZM11.3333 8.5H2.83333V7.08333H11.3333V8.5ZM11.3333 6.375H2.83333V4.95833H11.3333V6.375ZM11.3333 4.25H2.83333V2.83333H11.3333V4.25Z\", fill: \"#C4C4C4\" })),\n            react_1.default.createElement(\"span\", { className: controls_less_1.default.commentsNumber }, \"10\")),\n        react_1.default.createElement(\"div\", { className: controls_less_1.default.actions },\n            react_1.default.createElement(\"button\", { className: controls_less_1.default.shareButton },\n                react_1.default.createElement(\"svg\", { width: \"20\", height: \"20\", viewBox: \"0 0 20 20\", fill: \"none\", xmlns: \"http://www.w3.org/2000/svg\" },\n                    react_1.default.createElement(\"circle\", { cx: \"10\", cy: \"10\", r: \"10\", fill: \"#C4C4C4\" }),\n                    react_1.default.createElement(\"path\", { d: \"M11.6667 12.0683C11.3289 12.0683 11.0267 12.2189 10.7956 12.4548L7.62667 10.3715C7.64889 10.256 7.66667 10.1406 7.66667 10.0201C7.66667 9.8996 7.64889 9.78414 7.62667 9.66867L10.76 7.60542C11 7.85643 11.3156 8.01205 11.6667 8.01205C12.4044 8.01205 13 7.33936 13 6.50602C13 5.67269 12.4044 5 11.6667 5C10.9289 5 10.3333 5.67269 10.3333 6.50602C10.3333 6.62651 10.3511 6.74197 10.3733 6.85743L7.24 8.92068C7 8.66968 6.68444 8.51406 6.33333 8.51406C5.59556 8.51406 5 9.18675 5 10.0201C5 10.8534 5.59556 11.5261 6.33333 11.5261C6.68444 11.5261 7 11.3705 7.24 11.1195L10.4044 13.2078C10.3822 13.3133 10.3689 13.4237 10.3689 13.5341C10.3689 14.3424 10.9511 15 11.6667 15C12.3822 15 12.9644 14.3424 12.9644 13.5341C12.9644 12.7259 12.3822 12.0683 11.6667 12.0683Z\", fill: \"white\" }))),\n            react_1.default.createElement(\"button\", { className: controls_less_1.default.saveButton },\n                react_1.default.createElement(\"svg\", { width: \"20\", height: \"20\", viewBox: \"0 0 20 20\", fill: \"none\", xmlns: \"http://www.w3.org/2000/svg\" },\n                    react_1.default.createElement(\"path\", { d: \"M10 0C4.47 0 0 4.47 0 10C0 15.53 4.47 20 10 20C15.53 20 20 15.53 20 10C20 4.47 15.53 0 10 0ZM15 13.59L13.59 15L10 11.41L6.41 15L5 13.59L8.59 10L5 6.41L6.41 5L10 8.59L13.59 5L15 6.41L11.41 10L15 13.59Z\", fill: \"#C4C4C4\" }))))));\n}\nexports.Controls = Controls;\n\n\n//# sourceURL=webpack:///./src/shared/CardList/CardItem/Controls/Controls.tsx?");
 
 /***/ }),
 
-/***/ "./src/shared/Layout/Header/Header.tsx":
-/*!*********************************************!*\
-  !*** ./src/shared/Layout/Header/Header.tsx ***!
-  \*********************************************/
+/***/ "./src/shared/CardList/CardItem/Controls/KarmaCounter/KarmaCounter.tsx":
+/*!*****************************************************************************!*\
+  !*** ./src/shared/CardList/CardItem/Controls/KarmaCounter/KarmaCounter.tsx ***!
+  \*****************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.Header = void 0;\nvar react_1 = __importDefault(__webpack_require__(/*! react */ \"react\"));\nvar header_less_1 = __importDefault(__webpack_require__(/*! ./header.less */ \"./src/shared/Layout/Header/header.less\"));\nvar SearchBlock_1 = __webpack_require__(/*! ./SearchBlock */ \"./src/shared/Layout/Header/SearchBlock/index.ts\");\nvar SortBlock_1 = __webpack_require__(/*! ./SortBlock */ \"./src/shared/Layout/Header/SortBlock/index.ts\");\nvar ThreadTitle_1 = __webpack_require__(/*! ./ThreadTitle */ \"./src/shared/Layout/Header/ThreadTitle/index.ts\");\nfunction Header() {\n    return (react_1.default.createElement(\"header\", { className: header_less_1.default.header },\n        react_1.default.createElement(SearchBlock_1.SearchBlock, null),\n        react_1.default.createElement(ThreadTitle_1.ThreadTitle, null),\n        react_1.default.createElement(SortBlock_1.SortBlock, null)));\n}\nexports.Header = Header;\n\n\n//# sourceURL=webpack:///./src/shared/Layout/Header/Header.tsx?");
+eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.KarmaCounter = void 0;\nvar react_1 = __importDefault(__webpack_require__(/*! react */ \"react\"));\nvar karmacounter_less_1 = __importDefault(__webpack_require__(/*! ./karmacounter.less */ \"./src/shared/CardList/CardItem/Controls/KarmaCounter/karmacounter.less\"));\nfunction KarmaCounter() {\n    return (react_1.default.createElement(\"div\", { className: karmacounter_less_1.default.karmaCounter },\n        react_1.default.createElement(\"button\", { className: karmacounter_less_1.default.up },\n            react_1.default.createElement(\"svg\", { width: \"19\", height: \"10\", viewBox: \"0 0 19 10\", fill: \"none\", xmlns: \"http://www.w3.org/2000/svg\" },\n                react_1.default.createElement(\"path\", { d: \"M9.5 0L0 10H19L9.5 0Z\", fill: \"#D9D9D9\" }))),\n        react_1.default.createElement(\"span\", { className: karmacounter_less_1.default.karmaValue }, \"123\"),\n        react_1.default.createElement(\"button\", { className: karmacounter_less_1.default.down },\n            react_1.default.createElement(\"svg\", { className: karmacounter_less_1.default.down, width: \"19\", height: \"10\", viewBox: \"0 0 19 10\", fill: \"none\", xmlns: \"http://www.w3.org/2000/svg\" },\n                react_1.default.createElement(\"path\", { d: \"M9.5 0L0 10H19L9.5 0Z\", fill: \"#D9D9D9\" })))));\n}\nexports.KarmaCounter = KarmaCounter;\n\n\n//# sourceURL=webpack:///./src/shared/CardList/CardItem/Controls/KarmaCounter/KarmaCounter.tsx?");
 
 /***/ }),
 
-/***/ "./src/shared/Layout/Header/SearchBlock/SearchBlock.tsx":
-/*!**************************************************************!*\
-  !*** ./src/shared/Layout/Header/SearchBlock/SearchBlock.tsx ***!
-  \**************************************************************/
+/***/ "./src/shared/CardList/CardItem/Controls/KarmaCounter/index.ts":
+/*!*********************************************************************!*\
+  !*** ./src/shared/CardList/CardItem/Controls/KarmaCounter/index.ts ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.SearchBlock = void 0;\nvar react_1 = __importDefault(__webpack_require__(/*! react */ \"react\"));\nvar searchblock_less_1 = __importDefault(__webpack_require__(/*! ./searchblock.less */ \"./src/shared/Layout/Header/SearchBlock/searchblock.less\"));\nfunction SearchBlock() {\n    return (react_1.default.createElement(\"div\", { className: searchblock_less_1.default.searchBlock }, \"SearchBlock\"));\n}\nexports.SearchBlock = SearchBlock;\n\n\n//# sourceURL=webpack:///./src/shared/Layout/Header/SearchBlock/SearchBlock.tsx?");
+eval("\nvar __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {\n    if (k2 === undefined) k2 = k;\n    var desc = Object.getOwnPropertyDescriptor(m, k);\n    if (!desc || (\"get\" in desc ? !m.__esModule : desc.writable || desc.configurable)) {\n      desc = { enumerable: true, get: function() { return m[k]; } };\n    }\n    Object.defineProperty(o, k2, desc);\n}) : (function(o, m, k, k2) {\n    if (k2 === undefined) k2 = k;\n    o[k2] = m[k];\n}));\nvar __exportStar = (this && this.__exportStar) || function(m, exports) {\n    for (var p in m) if (p !== \"default\" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);\n};\nObject.defineProperty(exports, \"__esModule\", { value: true });\n__exportStar(__webpack_require__(/*! ./KarmaCounter */ \"./src/shared/CardList/CardItem/Controls/KarmaCounter/KarmaCounter.tsx\"), exports);\n\n\n//# sourceURL=webpack:///./src/shared/CardList/CardItem/Controls/KarmaCounter/index.ts?");
 
 /***/ }),
 
-/***/ "./src/shared/Layout/Header/SearchBlock/index.ts":
-/*!*******************************************************!*\
-  !*** ./src/shared/Layout/Header/SearchBlock/index.ts ***!
-  \*******************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-eval("\nvar __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {\n    if (k2 === undefined) k2 = k;\n    var desc = Object.getOwnPropertyDescriptor(m, k);\n    if (!desc || (\"get\" in desc ? !m.__esModule : desc.writable || desc.configurable)) {\n      desc = { enumerable: true, get: function() { return m[k]; } };\n    }\n    Object.defineProperty(o, k2, desc);\n}) : (function(o, m, k, k2) {\n    if (k2 === undefined) k2 = k;\n    o[k2] = m[k];\n}));\nvar __exportStar = (this && this.__exportStar) || function(m, exports) {\n    for (var p in m) if (p !== \"default\" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);\n};\nObject.defineProperty(exports, \"__esModule\", { value: true });\n__exportStar(__webpack_require__(/*! ./SearchBlock */ \"./src/shared/Layout/Header/SearchBlock/SearchBlock.tsx\"), exports);\n\n\n//# sourceURL=webpack:///./src/shared/Layout/Header/SearchBlock/index.ts?");
-
-/***/ }),
-
-/***/ "./src/shared/Layout/Header/SearchBlock/searchblock.less":
-/*!***************************************************************!*\
-  !*** ./src/shared/Layout/Header/SearchBlock/searchblock.less ***!
-  \***************************************************************/
+/***/ "./src/shared/CardList/CardItem/Controls/KarmaCounter/karmacounter.less":
+/*!******************************************************************************!*\
+  !*** ./src/shared/CardList/CardItem/Controls/KarmaCounter/karmacounter.less ***!
+  \******************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("// Exports\nmodule.exports = {\n\t\"searchBlock\": \"searchblock__searchBlock--2cRWh\"\n};\n\n\n//# sourceURL=webpack:///./src/shared/Layout/Header/SearchBlock/searchblock.less?");
+eval("// Exports\nmodule.exports = {\n\t\"karmaCounter\": \"karmacounter__karmaCounter--3NxWZ\",\n\t\"karmaValue\": \"karmacounter__karmaValue--3OVUb\",\n\t\"down\": \"karmacounter__down--2nuS4\",\n\t\"up\": \"karmacounter__up--2LUIP\"\n};\n\n\n//# sourceURL=webpack:///./src/shared/CardList/CardItem/Controls/KarmaCounter/karmacounter.less?");
 
 /***/ }),
 
-/***/ "./src/shared/Layout/Header/SortBlock/SortBlock.tsx":
+/***/ "./src/shared/CardList/CardItem/Controls/controls.less":
+/*!*************************************************************!*\
+  !*** ./src/shared/CardList/CardItem/Controls/controls.less ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("// Exports\nmodule.exports = {\n\t\"controls\": \"controls__controls--17xbG\",\n\t\"actions\": \"controls__actions--31OWB\",\n\t\"commentsButton\": \"controls__commentsButton--2zeVK\",\n\t\"commentsNumber\": \"controls__commentsNumber--2F1HP\",\n\t\"shareButton\": \"controls__shareButton--1OO2K\"\n};\n\n\n//# sourceURL=webpack:///./src/shared/CardList/CardItem/Controls/controls.less?");
+
+/***/ }),
+
+/***/ "./src/shared/CardList/CardItem/Controls/index.ts":
+/*!********************************************************!*\
+  !*** ./src/shared/CardList/CardItem/Controls/index.ts ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nvar __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {\n    if (k2 === undefined) k2 = k;\n    var desc = Object.getOwnPropertyDescriptor(m, k);\n    if (!desc || (\"get\" in desc ? !m.__esModule : desc.writable || desc.configurable)) {\n      desc = { enumerable: true, get: function() { return m[k]; } };\n    }\n    Object.defineProperty(o, k2, desc);\n}) : (function(o, m, k, k2) {\n    if (k2 === undefined) k2 = k;\n    o[k2] = m[k];\n}));\nvar __exportStar = (this && this.__exportStar) || function(m, exports) {\n    for (var p in m) if (p !== \"default\" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);\n};\nObject.defineProperty(exports, \"__esModule\", { value: true });\n__exportStar(__webpack_require__(/*! ./Controls */ \"./src/shared/CardList/CardItem/Controls/Controls.tsx\"), exports);\n\n\n//# sourceURL=webpack:///./src/shared/CardList/CardItem/Controls/index.ts?");
+
+/***/ }),
+
+/***/ "./src/shared/CardList/CardItem/Menu/Menu.tsx":
+/*!****************************************************!*\
+  !*** ./src/shared/CardList/CardItem/Menu/Menu.tsx ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.Menu = void 0;\nvar react_1 = __importDefault(__webpack_require__(/*! react */ \"react\"));\nvar menu_less_1 = __importDefault(__webpack_require__(/*! ./menu.less */ \"./src/shared/CardList/CardItem/Menu/menu.less\"));\nfunction Menu() {\n    return (react_1.default.createElement(\"div\", { className: menu_less_1.default.menu },\n        react_1.default.createElement(\"button\", { className: menu_less_1.default.menuButton },\n            react_1.default.createElement(\"svg\", { width: \"5\", height: \"20\", viewBox: \"0 0 5 20\", fill: \"none\", xmlns: \"http://www.w3.org/2000/svg\" },\n                react_1.default.createElement(\"circle\", { cx: \"2.5\", cy: \"2.5\", r: \"2.5\", fill: \"#D9D9D9\" }),\n                react_1.default.createElement(\"circle\", { cx: \"2.5\", cy: \"10\", r: \"2.5\", fill: \"#D9D9D9\" }),\n                react_1.default.createElement(\"circle\", { cx: \"2.5\", cy: \"17.5\", r: \"2.5\", fill: \"#D9D9D9\" })))));\n}\nexports.Menu = Menu;\n\n\n//# sourceURL=webpack:///./src/shared/CardList/CardItem/Menu/Menu.tsx?");
+
+/***/ }),
+
+/***/ "./src/shared/CardList/CardItem/Menu/index.ts":
+/*!****************************************************!*\
+  !*** ./src/shared/CardList/CardItem/Menu/index.ts ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nvar __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {\n    if (k2 === undefined) k2 = k;\n    var desc = Object.getOwnPropertyDescriptor(m, k);\n    if (!desc || (\"get\" in desc ? !m.__esModule : desc.writable || desc.configurable)) {\n      desc = { enumerable: true, get: function() { return m[k]; } };\n    }\n    Object.defineProperty(o, k2, desc);\n}) : (function(o, m, k, k2) {\n    if (k2 === undefined) k2 = k;\n    o[k2] = m[k];\n}));\nvar __exportStar = (this && this.__exportStar) || function(m, exports) {\n    for (var p in m) if (p !== \"default\" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);\n};\nObject.defineProperty(exports, \"__esModule\", { value: true });\n__exportStar(__webpack_require__(/*! ./Menu */ \"./src/shared/CardList/CardItem/Menu/Menu.tsx\"), exports);\n\n\n//# sourceURL=webpack:///./src/shared/CardList/CardItem/Menu/index.ts?");
+
+/***/ }),
+
+/***/ "./src/shared/CardList/CardItem/Menu/menu.less":
+/*!*****************************************************!*\
+  !*** ./src/shared/CardList/CardItem/Menu/menu.less ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("// Exports\nmodule.exports = {\n\t\"menu\": \"menu__menu--2XaKx\",\n\t\"menuButton\": \"menu__menuButton--Ql_oK\",\n\t\"dropdown\": \"menu__dropdown--dsChg\",\n\t\"closeButton\": \"menu__closeButton--3pt92\"\n};\n\n\n//# sourceURL=webpack:///./src/shared/CardList/CardItem/Menu/menu.less?");
+
+/***/ }),
+
+/***/ "./src/shared/CardList/CardItem/Preview/Preview.tsx":
 /*!**********************************************************!*\
-  !*** ./src/shared/Layout/Header/SortBlock/SortBlock.tsx ***!
+  !*** ./src/shared/CardList/CardItem/Preview/Preview.tsx ***!
   \**********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.SortBlock = void 0;\nvar react_1 = __importDefault(__webpack_require__(/*! react */ \"react\"));\nvar sortblock_less_1 = __importDefault(__webpack_require__(/*! ./sortblock.less */ \"./src/shared/Layout/Header/SortBlock/sortblock.less\"));\nfunction SortBlock() {\n    return (react_1.default.createElement(\"div\", { className: sortblock_less_1.default.sortBlock }, \"sortBlock\"));\n}\nexports.SortBlock = SortBlock;\n\n\n//# sourceURL=webpack:///./src/shared/Layout/Header/SortBlock/SortBlock.tsx?");
+eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.Preview = void 0;\nvar react_1 = __importDefault(__webpack_require__(/*! react */ \"react\"));\nvar preview_less_1 = __importDefault(__webpack_require__(/*! ./preview.less */ \"./src/shared/CardList/CardItem/Preview/preview.less\"));\nfunction Preview() {\n    return (react_1.default.createElement(\"div\", { className: preview_less_1.default.preview },\n        react_1.default.createElement(\"img\", { src: \"https://cdn.dribbble.com/userupload/4278708/file/original-2ddf812a21d5f8db3a9d5d25d812a73e.jpg?compress=1&resize=752x\", alt: \"\", className: preview_less_1.default.previewImg })));\n}\nexports.Preview = Preview;\n\n\n//# sourceURL=webpack:///./src/shared/CardList/CardItem/Preview/Preview.tsx?");
 
 /***/ }),
 
-/***/ "./src/shared/Layout/Header/SortBlock/index.ts":
-/*!*****************************************************!*\
-  !*** ./src/shared/Layout/Header/SortBlock/index.ts ***!
-  \*****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-eval("\nvar __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {\n    if (k2 === undefined) k2 = k;\n    var desc = Object.getOwnPropertyDescriptor(m, k);\n    if (!desc || (\"get\" in desc ? !m.__esModule : desc.writable || desc.configurable)) {\n      desc = { enumerable: true, get: function() { return m[k]; } };\n    }\n    Object.defineProperty(o, k2, desc);\n}) : (function(o, m, k, k2) {\n    if (k2 === undefined) k2 = k;\n    o[k2] = m[k];\n}));\nvar __exportStar = (this && this.__exportStar) || function(m, exports) {\n    for (var p in m) if (p !== \"default\" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);\n};\nObject.defineProperty(exports, \"__esModule\", { value: true });\n__exportStar(__webpack_require__(/*! ./SortBlock */ \"./src/shared/Layout/Header/SortBlock/SortBlock.tsx\"), exports);\n\n\n//# sourceURL=webpack:///./src/shared/Layout/Header/SortBlock/index.ts?");
-
-/***/ }),
-
-/***/ "./src/shared/Layout/Header/SortBlock/sortblock.less":
-/*!***********************************************************!*\
-  !*** ./src/shared/Layout/Header/SortBlock/sortblock.less ***!
-  \***********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-eval("// Exports\nmodule.exports = {\n\t\"sortBlock\": \"sortblock__sortBlock--HADRp\"\n};\n\n\n//# sourceURL=webpack:///./src/shared/Layout/Header/SortBlock/sortblock.less?");
-
-/***/ }),
-
-/***/ "./src/shared/Layout/Header/ThreadTitle/ThreadTitle.tsx":
-/*!**************************************************************!*\
-  !*** ./src/shared/Layout/Header/ThreadTitle/ThreadTitle.tsx ***!
-  \**************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.ThreadTitle = void 0;\nvar react_1 = __importDefault(__webpack_require__(/*! react */ \"react\"));\nvar threadtitle_less_1 = __importDefault(__webpack_require__(/*! ./threadtitle.less */ \"./src/shared/Layout/Header/ThreadTitle/threadtitle.less\"));\nfunction ThreadTitle() {\n    return (react_1.default.createElement(\"h1\", { className: threadtitle_less_1.default.threadTitle }, \"ThreadTitle\"));\n}\nexports.ThreadTitle = ThreadTitle;\n\n\n//# sourceURL=webpack:///./src/shared/Layout/Header/ThreadTitle/ThreadTitle.tsx?");
-
-/***/ }),
-
-/***/ "./src/shared/Layout/Header/ThreadTitle/index.ts":
+/***/ "./src/shared/CardList/CardItem/Preview/index.ts":
 /*!*******************************************************!*\
-  !*** ./src/shared/Layout/Header/ThreadTitle/index.ts ***!
+  !*** ./src/shared/CardList/CardItem/Preview/index.ts ***!
   \*******************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\nvar __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {\n    if (k2 === undefined) k2 = k;\n    var desc = Object.getOwnPropertyDescriptor(m, k);\n    if (!desc || (\"get\" in desc ? !m.__esModule : desc.writable || desc.configurable)) {\n      desc = { enumerable: true, get: function() { return m[k]; } };\n    }\n    Object.defineProperty(o, k2, desc);\n}) : (function(o, m, k, k2) {\n    if (k2 === undefined) k2 = k;\n    o[k2] = m[k];\n}));\nvar __exportStar = (this && this.__exportStar) || function(m, exports) {\n    for (var p in m) if (p !== \"default\" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);\n};\nObject.defineProperty(exports, \"__esModule\", { value: true });\n__exportStar(__webpack_require__(/*! ./ThreadTitle */ \"./src/shared/Layout/Header/ThreadTitle/ThreadTitle.tsx\"), exports);\n\n\n//# sourceURL=webpack:///./src/shared/Layout/Header/ThreadTitle/index.ts?");
+eval("\nvar __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {\n    if (k2 === undefined) k2 = k;\n    var desc = Object.getOwnPropertyDescriptor(m, k);\n    if (!desc || (\"get\" in desc ? !m.__esModule : desc.writable || desc.configurable)) {\n      desc = { enumerable: true, get: function() { return m[k]; } };\n    }\n    Object.defineProperty(o, k2, desc);\n}) : (function(o, m, k, k2) {\n    if (k2 === undefined) k2 = k;\n    o[k2] = m[k];\n}));\nvar __exportStar = (this && this.__exportStar) || function(m, exports) {\n    for (var p in m) if (p !== \"default\" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);\n};\nObject.defineProperty(exports, \"__esModule\", { value: true });\n__exportStar(__webpack_require__(/*! ./Preview */ \"./src/shared/CardList/CardItem/Preview/Preview.tsx\"), exports);\n\n\n//# sourceURL=webpack:///./src/shared/CardList/CardItem/Preview/index.ts?");
 
 /***/ }),
 
-/***/ "./src/shared/Layout/Header/ThreadTitle/threadtitle.less":
-/*!***************************************************************!*\
-  !*** ./src/shared/Layout/Header/ThreadTitle/threadtitle.less ***!
-  \***************************************************************/
+/***/ "./src/shared/CardList/CardItem/Preview/preview.less":
+/*!***********************************************************!*\
+  !*** ./src/shared/CardList/CardItem/Preview/preview.less ***!
+  \***********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("// Exports\nmodule.exports = {\n\t\"threadTitle\": \"threadtitle__threadTitle--2YFBG\"\n};\n\n\n//# sourceURL=webpack:///./src/shared/Layout/Header/ThreadTitle/threadtitle.less?");
+eval("// Exports\nmodule.exports = {\n\t\"preview\": \"preview__preview--ohKwr\",\n\t\"previewImg\": \"preview__previewImg--2Q713\"\n};\n\n\n//# sourceURL=webpack:///./src/shared/CardList/CardItem/Preview/preview.less?");
 
 /***/ }),
 
-/***/ "./src/shared/Layout/Header/header.less":
-/*!**********************************************!*\
-  !*** ./src/shared/Layout/Header/header.less ***!
-  \**********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-eval("// Exports\nmodule.exports = {\n\t\"header\": \"header__header--141B7\"\n};\n\n\n//# sourceURL=webpack:///./src/shared/Layout/Header/header.less?");
-
-/***/ }),
-
-/***/ "./src/shared/Layout/Header/index.ts":
-/*!*******************************************!*\
-  !*** ./src/shared/Layout/Header/index.ts ***!
-  \*******************************************/
+/***/ "./src/shared/CardList/CardItem/TextContent/MetaData/MetaData.tsx":
+/*!************************************************************************!*\
+  !*** ./src/shared/CardList/CardItem/TextContent/MetaData/MetaData.tsx ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\nvar __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {\n    if (k2 === undefined) k2 = k;\n    var desc = Object.getOwnPropertyDescriptor(m, k);\n    if (!desc || (\"get\" in desc ? !m.__esModule : desc.writable || desc.configurable)) {\n      desc = { enumerable: true, get: function() { return m[k]; } };\n    }\n    Object.defineProperty(o, k2, desc);\n}) : (function(o, m, k, k2) {\n    if (k2 === undefined) k2 = k;\n    o[k2] = m[k];\n}));\nvar __exportStar = (this && this.__exportStar) || function(m, exports) {\n    for (var p in m) if (p !== \"default\" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);\n};\nObject.defineProperty(exports, \"__esModule\", { value: true });\n__exportStar(__webpack_require__(/*! ./Header */ \"./src/shared/Layout/Header/Header.tsx\"), exports);\n\n\n//# sourceURL=webpack:///./src/shared/Layout/Header/index.ts?");
+eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.MetaData = void 0;\nvar react_1 = __importDefault(__webpack_require__(/*! react */ \"react\"));\nvar metadata_less_1 = __importDefault(__webpack_require__(/*! ./metadata.less */ \"./src/shared/CardList/CardItem/TextContent/MetaData/metadata.less\"));\nfunction MetaData() {\n    return (react_1.default.createElement(\"div\", { className: metadata_less_1.default.metaData },\n        react_1.default.createElement(\"div\", { className: metadata_less_1.default.userLink },\n            react_1.default.createElement(\"img\", { src: \"https://cdn.dribbble.com/users/962743/avatars/normal/33025b4a003c62e51916f041984f8dda.png?1615551147\", alt: \"avatar\", className: metadata_less_1.default.avatar }),\n            react_1.default.createElement(\"a\", { href: \"#userName\", className: metadata_less_1.default.username }, \"\\u0414\\u0435\\u043D\\u0438\\u0441 \\u0414\\u0430\\u0432\\u044B\\u0434\\u043E\\u0432\")),\n        react_1.default.createElement(\"span\", { className: metadata_less_1.default.createdAt },\n            react_1.default.createElement(\"span\", { className: metadata_less_1.default.publishedLabel }, \"\\u043E\\u043F\\u0443\\u0431\\u043B\\u0438\\u043A\\u043E\\u0432\\u0430\\u043D\\u043E \"),\n            \"4 \\u0447\\u0430\\u0441\\u0430 \\u043D\\u0430\\u0437\\u0430\\u0434\")));\n}\nexports.MetaData = MetaData;\n\n\n//# sourceURL=webpack:///./src/shared/CardList/CardItem/TextContent/MetaData/MetaData.tsx?");
+
+/***/ }),
+
+/***/ "./src/shared/CardList/CardItem/TextContent/MetaData/index.ts":
+/*!********************************************************************!*\
+  !*** ./src/shared/CardList/CardItem/TextContent/MetaData/index.ts ***!
+  \********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nvar __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {\n    if (k2 === undefined) k2 = k;\n    var desc = Object.getOwnPropertyDescriptor(m, k);\n    if (!desc || (\"get\" in desc ? !m.__esModule : desc.writable || desc.configurable)) {\n      desc = { enumerable: true, get: function() { return m[k]; } };\n    }\n    Object.defineProperty(o, k2, desc);\n}) : (function(o, m, k, k2) {\n    if (k2 === undefined) k2 = k;\n    o[k2] = m[k];\n}));\nvar __exportStar = (this && this.__exportStar) || function(m, exports) {\n    for (var p in m) if (p !== \"default\" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);\n};\nObject.defineProperty(exports, \"__esModule\", { value: true });\n__exportStar(__webpack_require__(/*! ./MetaData */ \"./src/shared/CardList/CardItem/TextContent/MetaData/MetaData.tsx\"), exports);\n\n\n//# sourceURL=webpack:///./src/shared/CardList/CardItem/TextContent/MetaData/index.ts?");
+
+/***/ }),
+
+/***/ "./src/shared/CardList/CardItem/TextContent/MetaData/metadata.less":
+/*!*************************************************************************!*\
+  !*** ./src/shared/CardList/CardItem/TextContent/MetaData/metadata.less ***!
+  \*************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("// Exports\nmodule.exports = {\n\t\"userLink\": \"metadata__userLink--1Tsxi\",\n\t\"avatar\": \"metadata__avatar--3Une3\",\n\t\"username\": \"metadata__username--3avGF\",\n\t\"metaData\": \"metadata__metaData--2ILkH\",\n\t\"publishedLabel\": \"metadata__publishedLabel--3UpoH\",\n\t\"createdAt\": \"metadata__createdAt--WutEf\"\n};\n\n\n//# sourceURL=webpack:///./src/shared/CardList/CardItem/TextContent/MetaData/metadata.less?");
+
+/***/ }),
+
+/***/ "./src/shared/CardList/CardItem/TextContent/TextContent.tsx":
+/*!******************************************************************!*\
+  !*** ./src/shared/CardList/CardItem/TextContent/TextContent.tsx ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.TextContent = void 0;\nvar react_1 = __importDefault(__webpack_require__(/*! react */ \"react\"));\nvar MetaData_1 = __webpack_require__(/*! ./MetaData */ \"./src/shared/CardList/CardItem/TextContent/MetaData/index.ts\");\nvar textcontent_less_1 = __importDefault(__webpack_require__(/*! ./textcontent.less */ \"./src/shared/CardList/CardItem/TextContent/textcontent.less\"));\nvar Title_1 = __webpack_require__(/*! ./Title */ \"./src/shared/CardList/CardItem/TextContent/Title/index.ts\");\nfunction TextContent() {\n    return (react_1.default.createElement(\"div\", { className: textcontent_less_1.default.textContent },\n        react_1.default.createElement(MetaData_1.MetaData, null),\n        react_1.default.createElement(Title_1.Title, null)));\n}\nexports.TextContent = TextContent;\n\n\n//# sourceURL=webpack:///./src/shared/CardList/CardItem/TextContent/TextContent.tsx?");
+
+/***/ }),
+
+/***/ "./src/shared/CardList/CardItem/TextContent/Title/Title.tsx":
+/*!******************************************************************!*\
+  !*** ./src/shared/CardList/CardItem/TextContent/Title/Title.tsx ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.Title = void 0;\nvar react_1 = __importDefault(__webpack_require__(/*! react */ \"react\"));\nvar title_less_1 = __importDefault(__webpack_require__(/*! ./title.less */ \"./src/shared/CardList/CardItem/TextContent/Title/title.less\"));\nfunction Title() {\n    return (react_1.default.createElement(\"h2\", { className: title_less_1.default.title },\n        react_1.default.createElement(\"a\", { href: \"#post-link\", className: title_less_1.default.postLink }, \"Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo nihil id vero dolor?\")));\n}\nexports.Title = Title;\n\n\n//# sourceURL=webpack:///./src/shared/CardList/CardItem/TextContent/Title/Title.tsx?");
+
+/***/ }),
+
+/***/ "./src/shared/CardList/CardItem/TextContent/Title/index.ts":
+/*!*****************************************************************!*\
+  !*** ./src/shared/CardList/CardItem/TextContent/Title/index.ts ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nvar __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {\n    if (k2 === undefined) k2 = k;\n    var desc = Object.getOwnPropertyDescriptor(m, k);\n    if (!desc || (\"get\" in desc ? !m.__esModule : desc.writable || desc.configurable)) {\n      desc = { enumerable: true, get: function() { return m[k]; } };\n    }\n    Object.defineProperty(o, k2, desc);\n}) : (function(o, m, k, k2) {\n    if (k2 === undefined) k2 = k;\n    o[k2] = m[k];\n}));\nvar __exportStar = (this && this.__exportStar) || function(m, exports) {\n    for (var p in m) if (p !== \"default\" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);\n};\nObject.defineProperty(exports, \"__esModule\", { value: true });\n__exportStar(__webpack_require__(/*! ./Title */ \"./src/shared/CardList/CardItem/TextContent/Title/Title.tsx\"), exports);\n\n\n//# sourceURL=webpack:///./src/shared/CardList/CardItem/TextContent/Title/index.ts?");
+
+/***/ }),
+
+/***/ "./src/shared/CardList/CardItem/TextContent/Title/title.less":
+/*!*******************************************************************!*\
+  !*** ./src/shared/CardList/CardItem/TextContent/Title/title.less ***!
+  \*******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("// Exports\nmodule.exports = {\n\t\"title\": \"title__title--2Iz1q\",\n\t\"postLink\": \"title__postLink--1N9tu\",\n\t\"textContent\": \"title__textContent--2nbBU\"\n};\n\n\n//# sourceURL=webpack:///./src/shared/CardList/CardItem/TextContent/Title/title.less?");
+
+/***/ }),
+
+/***/ "./src/shared/CardList/CardItem/TextContent/index.ts":
+/*!***********************************************************!*\
+  !*** ./src/shared/CardList/CardItem/TextContent/index.ts ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nvar __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {\n    if (k2 === undefined) k2 = k;\n    var desc = Object.getOwnPropertyDescriptor(m, k);\n    if (!desc || (\"get\" in desc ? !m.__esModule : desc.writable || desc.configurable)) {\n      desc = { enumerable: true, get: function() { return m[k]; } };\n    }\n    Object.defineProperty(o, k2, desc);\n}) : (function(o, m, k, k2) {\n    if (k2 === undefined) k2 = k;\n    o[k2] = m[k];\n}));\nvar __exportStar = (this && this.__exportStar) || function(m, exports) {\n    for (var p in m) if (p !== \"default\" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);\n};\nObject.defineProperty(exports, \"__esModule\", { value: true });\n__exportStar(__webpack_require__(/*! ./TextContent */ \"./src/shared/CardList/CardItem/TextContent/TextContent.tsx\"), exports);\n\n\n//# sourceURL=webpack:///./src/shared/CardList/CardItem/TextContent/index.ts?");
+
+/***/ }),
+
+/***/ "./src/shared/CardList/CardItem/TextContent/textcontent.less":
+/*!*******************************************************************!*\
+  !*** ./src/shared/CardList/CardItem/TextContent/textcontent.less ***!
+  \*******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("// Exports\nmodule.exports = {\n\t\"textContent\": \"textcontent__textContent--2xI39\",\n\t\"metaData\": \"textcontent__metaData--2S50D\",\n\t\"publishedLabel\": \"textcontent__publishedLabel--3dLBW\"\n};\n\n\n//# sourceURL=webpack:///./src/shared/CardList/CardItem/TextContent/textcontent.less?");
+
+/***/ }),
+
+/***/ "./src/shared/CardList/CardItem/carditem.less":
+/*!****************************************************!*\
+  !*** ./src/shared/CardList/CardItem/carditem.less ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("// Exports\nmodule.exports = {\n\t\"card\": \"carditem__card--mTzSp\",\n\t\"textContent\": \"carditem__textContent--bbSQ7\"\n};\n\n\n//# sourceURL=webpack:///./src/shared/CardList/CardItem/carditem.less?");
+
+/***/ }),
+
+/***/ "./src/shared/CardList/CardItem/index.ts":
+/*!***********************************************!*\
+  !*** ./src/shared/CardList/CardItem/index.ts ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nvar __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {\n    if (k2 === undefined) k2 = k;\n    var desc = Object.getOwnPropertyDescriptor(m, k);\n    if (!desc || (\"get\" in desc ? !m.__esModule : desc.writable || desc.configurable)) {\n      desc = { enumerable: true, get: function() { return m[k]; } };\n    }\n    Object.defineProperty(o, k2, desc);\n}) : (function(o, m, k, k2) {\n    if (k2 === undefined) k2 = k;\n    o[k2] = m[k];\n}));\nvar __exportStar = (this && this.__exportStar) || function(m, exports) {\n    for (var p in m) if (p !== \"default\" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);\n};\nObject.defineProperty(exports, \"__esModule\", { value: true });\n__exportStar(__webpack_require__(/*! ./CardItem */ \"./src/shared/CardList/CardItem/CardItem.tsx\"), exports);\n\n\n//# sourceURL=webpack:///./src/shared/CardList/CardItem/index.ts?");
+
+/***/ }),
+
+/***/ "./src/shared/CardList/CardList.tsx":
+/*!******************************************!*\
+  !*** ./src/shared/CardList/CardList.tsx ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.CardList = void 0;\nvar react_1 = __importDefault(__webpack_require__(/*! react */ \"react\"));\nvar CardItem_1 = __webpack_require__(/*! ./CardItem */ \"./src/shared/CardList/CardItem/index.ts\");\nvar cardlist_less_1 = __importDefault(__webpack_require__(/*! ./cardlist.less */ \"./src/shared/CardList/cardlist.less\"));\nfunction CardList() {\n    return (react_1.default.createElement(\"ul\", { className: cardlist_less_1.default.cardList },\n        react_1.default.createElement(CardItem_1.CardItem, null)));\n}\nexports.CardList = CardList;\n\n\n//# sourceURL=webpack:///./src/shared/CardList/CardList.tsx?");
+
+/***/ }),
+
+/***/ "./src/shared/CardList/cardlist.less":
+/*!*******************************************!*\
+  !*** ./src/shared/CardList/cardlist.less ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("// Exports\nmodule.exports = {\n\t\"cardsList\": \"cardlist__cardsList--2-4ZC\"\n};\n\n\n//# sourceURL=webpack:///./src/shared/CardList/cardlist.less?");
+
+/***/ }),
+
+/***/ "./src/shared/CardList/index.ts":
+/*!**************************************!*\
+  !*** ./src/shared/CardList/index.ts ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nvar __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {\n    if (k2 === undefined) k2 = k;\n    var desc = Object.getOwnPropertyDescriptor(m, k);\n    if (!desc || (\"get\" in desc ? !m.__esModule : desc.writable || desc.configurable)) {\n      desc = { enumerable: true, get: function() { return m[k]; } };\n    }\n    Object.defineProperty(o, k2, desc);\n}) : (function(o, m, k, k2) {\n    if (k2 === undefined) k2 = k;\n    o[k2] = m[k];\n}));\nvar __exportStar = (this && this.__exportStar) || function(m, exports) {\n    for (var p in m) if (p !== \"default\" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);\n};\nObject.defineProperty(exports, \"__esModule\", { value: true });\n__exportStar(__webpack_require__(/*! ./CardList */ \"./src/shared/CardList/CardList.tsx\"), exports);\n\n\n//# sourceURL=webpack:///./src/shared/CardList/index.ts?");
+
+/***/ }),
+
+/***/ "./src/shared/Content/Content.tsx":
+/*!****************************************!*\
+  !*** ./src/shared/Content/Content.tsx ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.Content = void 0;\nvar react_1 = __importDefault(__webpack_require__(/*! react */ \"react\"));\nvar content_less_1 = __importDefault(__webpack_require__(/*! ./content.less */ \"./src/shared/Content/content.less\"));\nfunction Content(_a) {\n    var children = _a.children;\n    return (react_1.default.createElement(\"main\", { className: content_less_1.default.content }, children));\n}\nexports.Content = Content;\n\n\n//# sourceURL=webpack:///./src/shared/Content/Content.tsx?");
+
+/***/ }),
+
+/***/ "./src/shared/Content/content.less":
+/*!*****************************************!*\
+  !*** ./src/shared/Content/content.less ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("// Exports\nmodule.exports = {\n\t\"content\": \"content__content--3fgq5\"\n};\n\n\n//# sourceURL=webpack:///./src/shared/Content/content.less?");
+
+/***/ }),
+
+/***/ "./src/shared/Content/index.ts":
+/*!*************************************!*\
+  !*** ./src/shared/Content/index.ts ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nvar __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {\n    if (k2 === undefined) k2 = k;\n    var desc = Object.getOwnPropertyDescriptor(m, k);\n    if (!desc || (\"get\" in desc ? !m.__esModule : desc.writable || desc.configurable)) {\n      desc = { enumerable: true, get: function() { return m[k]; } };\n    }\n    Object.defineProperty(o, k2, desc);\n}) : (function(o, m, k, k2) {\n    if (k2 === undefined) k2 = k;\n    o[k2] = m[k];\n}));\nvar __exportStar = (this && this.__exportStar) || function(m, exports) {\n    for (var p in m) if (p !== \"default\" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);\n};\nObject.defineProperty(exports, \"__esModule\", { value: true });\n__exportStar(__webpack_require__(/*! ./Content */ \"./src/shared/Content/Content.tsx\"), exports);\n\n\n//# sourceURL=webpack:///./src/shared/Content/index.ts?");
+
+/***/ }),
+
+/***/ "./src/shared/Header/Header.tsx":
+/*!**************************************!*\
+  !*** ./src/shared/Header/Header.tsx ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.Header = void 0;\nvar react_1 = __importDefault(__webpack_require__(/*! react */ \"react\"));\nvar header_less_1 = __importDefault(__webpack_require__(/*! ./header.less */ \"./src/shared/Header/header.less\"));\nvar SearchBlock_1 = __webpack_require__(/*! ./SearchBlock */ \"./src/shared/Header/SearchBlock/index.ts\");\nvar SortBlock_1 = __webpack_require__(/*! ./SortBlock */ \"./src/shared/Header/SortBlock/index.ts\");\nvar ThreadTitle_1 = __webpack_require__(/*! ./ThreadTitle */ \"./src/shared/Header/ThreadTitle/index.ts\");\nfunction Header() {\n    return (react_1.default.createElement(\"header\", { className: header_less_1.default.header },\n        react_1.default.createElement(SearchBlock_1.SearchBlock, null),\n        react_1.default.createElement(ThreadTitle_1.ThreadTitle, null),\n        react_1.default.createElement(SortBlock_1.SortBlock, null)));\n}\nexports.Header = Header;\n\n\n//# sourceURL=webpack:///./src/shared/Header/Header.tsx?");
+
+/***/ }),
+
+/***/ "./src/shared/Header/SearchBlock/SearchBlock.tsx":
+/*!*******************************************************!*\
+  !*** ./src/shared/Header/SearchBlock/SearchBlock.tsx ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.SearchBlock = void 0;\nvar react_1 = __importDefault(__webpack_require__(/*! react */ \"react\"));\nvar searchblock_less_1 = __importDefault(__webpack_require__(/*! ./searchblock.less */ \"./src/shared/Header/SearchBlock/searchblock.less\"));\nfunction SearchBlock() {\n    return (react_1.default.createElement(\"div\", { className: searchblock_less_1.default.searchBlock }, \"SearchBlock\"));\n}\nexports.SearchBlock = SearchBlock;\n\n\n//# sourceURL=webpack:///./src/shared/Header/SearchBlock/SearchBlock.tsx?");
+
+/***/ }),
+
+/***/ "./src/shared/Header/SearchBlock/index.ts":
+/*!************************************************!*\
+  !*** ./src/shared/Header/SearchBlock/index.ts ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nvar __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {\n    if (k2 === undefined) k2 = k;\n    var desc = Object.getOwnPropertyDescriptor(m, k);\n    if (!desc || (\"get\" in desc ? !m.__esModule : desc.writable || desc.configurable)) {\n      desc = { enumerable: true, get: function() { return m[k]; } };\n    }\n    Object.defineProperty(o, k2, desc);\n}) : (function(o, m, k, k2) {\n    if (k2 === undefined) k2 = k;\n    o[k2] = m[k];\n}));\nvar __exportStar = (this && this.__exportStar) || function(m, exports) {\n    for (var p in m) if (p !== \"default\" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);\n};\nObject.defineProperty(exports, \"__esModule\", { value: true });\n__exportStar(__webpack_require__(/*! ./SearchBlock */ \"./src/shared/Header/SearchBlock/SearchBlock.tsx\"), exports);\n\n\n//# sourceURL=webpack:///./src/shared/Header/SearchBlock/index.ts?");
+
+/***/ }),
+
+/***/ "./src/shared/Header/SearchBlock/searchblock.less":
+/*!********************************************************!*\
+  !*** ./src/shared/Header/SearchBlock/searchblock.less ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("// Exports\nmodule.exports = {\n\t\"searchBlock\": \"searchblock__searchBlock--C12wc\"\n};\n\n\n//# sourceURL=webpack:///./src/shared/Header/SearchBlock/searchblock.less?");
+
+/***/ }),
+
+/***/ "./src/shared/Header/SortBlock/SortBlock.tsx":
+/*!***************************************************!*\
+  !*** ./src/shared/Header/SortBlock/SortBlock.tsx ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.SortBlock = void 0;\nvar react_1 = __importDefault(__webpack_require__(/*! react */ \"react\"));\nvar sortblock_less_1 = __importDefault(__webpack_require__(/*! ./sortblock.less */ \"./src/shared/Header/SortBlock/sortblock.less\"));\nfunction SortBlock() {\n    return (react_1.default.createElement(\"div\", { className: sortblock_less_1.default.sortBlock }, \"sortBlock\"));\n}\nexports.SortBlock = SortBlock;\n\n\n//# sourceURL=webpack:///./src/shared/Header/SortBlock/SortBlock.tsx?");
+
+/***/ }),
+
+/***/ "./src/shared/Header/SortBlock/index.ts":
+/*!**********************************************!*\
+  !*** ./src/shared/Header/SortBlock/index.ts ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nvar __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {\n    if (k2 === undefined) k2 = k;\n    var desc = Object.getOwnPropertyDescriptor(m, k);\n    if (!desc || (\"get\" in desc ? !m.__esModule : desc.writable || desc.configurable)) {\n      desc = { enumerable: true, get: function() { return m[k]; } };\n    }\n    Object.defineProperty(o, k2, desc);\n}) : (function(o, m, k, k2) {\n    if (k2 === undefined) k2 = k;\n    o[k2] = m[k];\n}));\nvar __exportStar = (this && this.__exportStar) || function(m, exports) {\n    for (var p in m) if (p !== \"default\" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);\n};\nObject.defineProperty(exports, \"__esModule\", { value: true });\n__exportStar(__webpack_require__(/*! ./SortBlock */ \"./src/shared/Header/SortBlock/SortBlock.tsx\"), exports);\n\n\n//# sourceURL=webpack:///./src/shared/Header/SortBlock/index.ts?");
+
+/***/ }),
+
+/***/ "./src/shared/Header/SortBlock/sortblock.less":
+/*!****************************************************!*\
+  !*** ./src/shared/Header/SortBlock/sortblock.less ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("// Exports\nmodule.exports = {\n\t\"sortBlock\": \"sortblock__sortBlock--1KalP\"\n};\n\n\n//# sourceURL=webpack:///./src/shared/Header/SortBlock/sortblock.less?");
+
+/***/ }),
+
+/***/ "./src/shared/Header/ThreadTitle/ThreadTitle.tsx":
+/*!*******************************************************!*\
+  !*** ./src/shared/Header/ThreadTitle/ThreadTitle.tsx ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.ThreadTitle = void 0;\nvar react_1 = __importDefault(__webpack_require__(/*! react */ \"react\"));\nvar threadtitle_less_1 = __importDefault(__webpack_require__(/*! ./threadtitle.less */ \"./src/shared/Header/ThreadTitle/threadtitle.less\"));\nfunction ThreadTitle() {\n    return (react_1.default.createElement(\"h1\", { className: threadtitle_less_1.default.threadTitle }, \"ThreadTitle\"));\n}\nexports.ThreadTitle = ThreadTitle;\n\n\n//# sourceURL=webpack:///./src/shared/Header/ThreadTitle/ThreadTitle.tsx?");
+
+/***/ }),
+
+/***/ "./src/shared/Header/ThreadTitle/index.ts":
+/*!************************************************!*\
+  !*** ./src/shared/Header/ThreadTitle/index.ts ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nvar __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {\n    if (k2 === undefined) k2 = k;\n    var desc = Object.getOwnPropertyDescriptor(m, k);\n    if (!desc || (\"get\" in desc ? !m.__esModule : desc.writable || desc.configurable)) {\n      desc = { enumerable: true, get: function() { return m[k]; } };\n    }\n    Object.defineProperty(o, k2, desc);\n}) : (function(o, m, k, k2) {\n    if (k2 === undefined) k2 = k;\n    o[k2] = m[k];\n}));\nvar __exportStar = (this && this.__exportStar) || function(m, exports) {\n    for (var p in m) if (p !== \"default\" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);\n};\nObject.defineProperty(exports, \"__esModule\", { value: true });\n__exportStar(__webpack_require__(/*! ./ThreadTitle */ \"./src/shared/Header/ThreadTitle/ThreadTitle.tsx\"), exports);\n\n\n//# sourceURL=webpack:///./src/shared/Header/ThreadTitle/index.ts?");
+
+/***/ }),
+
+/***/ "./src/shared/Header/ThreadTitle/threadtitle.less":
+/*!********************************************************!*\
+  !*** ./src/shared/Header/ThreadTitle/threadtitle.less ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("// Exports\nmodule.exports = {\n\t\"threadTitle\": \"threadtitle__threadTitle--QB_S1\"\n};\n\n\n//# sourceURL=webpack:///./src/shared/Header/ThreadTitle/threadtitle.less?");
+
+/***/ }),
+
+/***/ "./src/shared/Header/header.less":
+/*!***************************************!*\
+  !*** ./src/shared/Header/header.less ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("// Exports\nmodule.exports = {\n\t\"header\": \"header__header--rZiE5\"\n};\n\n\n//# sourceURL=webpack:///./src/shared/Header/header.less?");
+
+/***/ }),
+
+/***/ "./src/shared/Header/index.ts":
+/*!************************************!*\
+  !*** ./src/shared/Header/index.ts ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nvar __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {\n    if (k2 === undefined) k2 = k;\n    var desc = Object.getOwnPropertyDescriptor(m, k);\n    if (!desc || (\"get\" in desc ? !m.__esModule : desc.writable || desc.configurable)) {\n      desc = { enumerable: true, get: function() { return m[k]; } };\n    }\n    Object.defineProperty(o, k2, desc);\n}) : (function(o, m, k, k2) {\n    if (k2 === undefined) k2 = k;\n    o[k2] = m[k];\n}));\nvar __exportStar = (this && this.__exportStar) || function(m, exports) {\n    for (var p in m) if (p !== \"default\" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);\n};\nObject.defineProperty(exports, \"__esModule\", { value: true });\n__exportStar(__webpack_require__(/*! ./Header */ \"./src/shared/Header/Header.tsx\"), exports);\n\n\n//# sourceURL=webpack:///./src/shared/Header/index.ts?");
 
 /***/ }),
 

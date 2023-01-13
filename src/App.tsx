@@ -1,14 +1,18 @@
 import React from "react";
+import './main.global.less';
 import { hot } from "react-hot-loader/root";
 import { Layout } from "./shared/Layout";
-import { Content } from "./shared/Layout/Content";
-import { Header } from "./shared/Layout/Header";
+import { Content } from "./shared/Content";
+import { Header } from "./shared/Header";
+import { CardList } from "./shared/CardList";
 
 function AppComponent() {
     return (
         <Layout>
             <Header />
-            <Content />
+            <Content>
+                <CardList />
+            </Content>
         </Layout>
     )
 }
