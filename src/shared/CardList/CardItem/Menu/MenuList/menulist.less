@@ -1,0 +1,43 @@
+.list {
+    background: #fff;
+    position: absolute;
+    right: 0;
+}
+
+.list__item {
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    color: var(--grey99);
+    font-size: 12px;
+
+    svg {
+        margin-right: 5px;
+    }
+
+    &:first-child {
+        border-bottom: 1px solid var(--greyEC);
+    }
+
+    &:last-child {
+        background: var(--greyD9);
+        color: var(--grey66);
+        text-align: center;
+        justify-content: center;
+    }
+}
+
+@media all and (min-width: 1024px) {
+    .list__item {
+        cursor: pointer;
+        transition: .3s;
+
+        &:hover {
+            color: var(--orange);
+
+            svg path {
+                fill: var(--orange);
+            }
+        }
+    }
+}
