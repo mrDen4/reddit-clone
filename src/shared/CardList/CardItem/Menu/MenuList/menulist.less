@@ -1,7 +1,11 @@
 .list {
     background: #fff;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.15);
+    border-radius: 3px;
     position: absolute;
     right: 0;
+    display: flex;
+    flex-direction: column;
 }
 
 .list__item {
@@ -15,7 +19,7 @@
         margin-right: 5px;
     }
 
-    &:first-child {
+    &:nth-child(3) {
         border-bottom: 1px solid var(--greyEC);
     }
 
@@ -25,12 +29,22 @@
         text-align: center;
         justify-content: center;
     }
+
+    &_desktop {
+        display: none;
+    }
 }
 
 @media all and (min-width: 1024px) {
+    .list {
+        padding: 0 20px;
+    }
+
     .list__item {
         cursor: pointer;
         transition: .3s;
+        border-bottom: 1px solid var(--greyEC);
+        padding: 12px 0;
 
         &:hover {
             color: var(--orange);
@@ -38,6 +52,14 @@
             svg path {
                 fill: var(--orange);
             }
+        }
+
+        &_desktop {
+            display: flex;
+        }
+
+        &_mobile {
+            display: none;
         }
     }
 }
